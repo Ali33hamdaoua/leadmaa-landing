@@ -1,87 +1,31 @@
 export default function Sponsors() {
+  const sponsors = [
+    { name: "Meta Ads", logo: "/images/meta.svg" },
+    { name: "Google Ads", logo: "/images/google.svg" },
+    { name: "Calendly", logo: "/images/calendly.svg" },
+    { name: "HubSpot", logo: "/images/hubspot.svg" },
+  ];
+
   return (
-    <section className="pb-10" id="sponsors">
-      <div className="px-4 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <h1 className="mb-8 text-2xl font-bold tracking-normal text-center text-gray-800 md:leading-tight md:tracking-normal dark:text-gray-200 md:text-4xl">
-          Sponsored by forward-thinking companies.
-        </h1>
-        <p className="max-w-md mx-auto mb-12 text-lg text-gray-600 dark:text-gray-400 text-left md:text-center md:text-lg">
-          <b>Note:</b> we have removed any fake sponsors from Plutonium. The
-          following are random SVG logo samples.
+    <section id="trusted-by" className="py-16 bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-gray-800 dark:text-white">
+          Trusted by leading platforms & partners
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-10">
+          We integrate with the most reliable tools to ensure verified, real-time lead delivery.
         </p>
-        <div className="grid grid-cols-2 gap-8 mt-6 md:grid-cols-4">
-          <div className="flex justify-center col-span-1 md:col-span-2 lg:col-span-1">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 200 200"
-              className="mt-6 text-gray-400 transition duration-300 fill-current h-14 filter grayscale hover:filter-none hover:grayscale-0"
-            >
-              <path fill="currentColor" d="M0 0h200v200H0z" />
-              <text
-                transform="translate(16.21 144.88)"
-                fill="#fff"
-                fontSize="165"
-                fontFamily="Osaka"
-              >
-                nd
-              </text>
-            </svg>
-          </div>
-          <div className="flex justify-center col-span-1 md:col-span-2 lg:col-span-1">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 200 200"
-              className="mt-6 text-gray-400 transition duration-300 fill-current h-14 filter grayscale hover:filter-none hover:grayscale-0"
-            >
-              <path fill="currentColor" d="M0 0h200v200H0z" />
-              <text
-                transform="translate(16.21 144.88)"
-                fill="#fff"
-                fontSize="165"
-                fontFamily="Osaka"
-              >
-                nd
-              </text>
-            </svg>
-          </div>
-          <div className="flex justify-center col-span-1 md:col-span-2 lg:col-span-1">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 200 200"
-              className="mt-6 text-gray-400 transition duration-300 fill-current h-14 filter grayscale hover:filter-none hover:grayscale-0"
-            >
-              <path fill="currentColor" d="M0 0h200v200H0z" />
-              <text
-                transform="translate(16.21 144.88)"
-                fill="#fff"
-                fontSize="165"
-                fontFamily="Osaka"
-              >
-                nd
-              </text>
-            </svg>
-          </div>
-          <div className="flex justify-center col-span-1 md:col-span-2 lg:col-span-1">
-            <svg
-              data-name="Layer 1"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 200 200"
-              className="mt-6 text-gray-400 transition duration-300 fill-current h-14 filter grayscale hover:filter-none hover:grayscale-0"
-            >
-              <path fill="currentColor" d="M0 0h200v200H0z" />
-              <text
-                transform="translate(16.21 144.88)"
-                fill="#fff"
-                fontSize="165"
-                fontFamily="Osaka"
-              >
-                nd
-              </text>
-            </svg>
-          </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-center">
+          {sponsors.map((sponsor, index) => (
+            <div key={index} className="flex justify-center">
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                className="h-10 opacity-70 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>
