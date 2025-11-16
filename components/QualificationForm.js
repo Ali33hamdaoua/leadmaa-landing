@@ -1,7 +1,32 @@
+import emailjs from "emailjs-com";
+import { useRef } from "react";
+
 export default function QualificationForm() {
+  const formRef = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.open("https://calendly.com/", "_blank");
+
+    emailjs
+      .sendForm(
+        "service_ew23brt", // service ID
+        "template_she9e68", // template ID
+        formRef.current,
+        "MBlVCf-szj0LzuXgt" // public key
+      )
+      .then(
+        () => {
+          alert("✅ Form submitted successfully!");
+          window.open(
+            "https://calendly.com/alexnguyen-leadmaa/seller-support-network-discovery-strategy-session",
+            "_blank"
+          );
+        },
+        (error) => {
+          console.error("❌ Error sending form:", error.text);
+          alert("There was an error sending your request. Please try again.");
+        }
+      );
   };
 
   return (
@@ -12,38 +37,47 @@ export default function QualificationForm() {
       <div className="max-w-3xl mx-auto text-center">
         {/* Title */}
         <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-900 dark:text-white">
-          Get Qualified <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">Leads Today</span>
+          Get Qualified{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500">
+            Leads Today
+          </span>
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-12 text-lg">
-          Fill out the short form below and schedule your personalized call to start receiving verified, exclusive leads.
+          Fill out the short form below and schedule your personalized call to
+          start receiving verified, exclusive leads.
         </p>
 
         {/* Form */}
         <form
+          ref={formRef}
           onSubmit={handleSubmit}
           className="space-y-8 bg-white dark:bg-slate-800 p-10 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-700 transition-transform hover:scale-[1.01]"
         >
           {/* Basic Info */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
+              name="full_name"
               type="text"
               placeholder="Full Name"
               className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
               required
             />
             <input
+              name="email"
               type="email"
               placeholder="Business Email"
               className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
               required
             />
             <input
+              name="phone"
               type="tel"
               placeholder="Phone Number"
               className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
               required
             />
             <input
+              name="agency"
               type="text"
               placeholder="Agency / Brokerage"
               className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
@@ -53,16 +87,24 @@ export default function QualificationForm() {
 
           {/* Select Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <select className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full">
-              <option>Transactions in the Last 12 Months</option>
+            <select
+              name="transactions"
+              className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
+              required
+            >
+              <option value="">Transactions in the Last 12 Months</option>
               <option>0–5</option>
               <option>6–15</option>
               <option>16–30</option>
               <option>30+</option>
             </select>
 
-            <select className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full">
-              <option>Lead Type Desired</option>
+            <select
+              name="lead_type"
+              className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
+              required
+            >
+              <option value="">Lead Type Desired</option>
               <option>Buyer</option>
               <option>Seller</option>
               <option>Both</option>
@@ -72,12 +114,17 @@ export default function QualificationForm() {
           {/* ZIP + Value */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input
+              name="zip_codes"
               type="text"
               placeholder="Target ZIP Codes"
               className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
             />
-            <select className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full">
-              <option>Average Property Value</option>
+            <select
+              name="property_value"
+              className="p-4 rounded-xl border border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all w-full"
+              required
+            >
+              <option value="">Average Property Value</option>
               <option>&lt; $250K</option>
               <option>$250K–$500K</option>
               <option>$500K–$1M</option>
@@ -93,9 +140,9 @@ export default function QualificationForm() {
             Submit My Request →
           </button>
 
-          {/* Small disclaimer */}
           <p className="text-sm text-gray-400 mt-4">
-            Once submitted, you’ll be redirected to schedule a quick call via Calendly.
+            Once submitted, you’ll be redirected to schedule a quick call via
+            Calendly.
           </p>
         </form>
       </div>
