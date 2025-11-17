@@ -10,10 +10,10 @@ export default function ProofBlock() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold mb-8">
-          ⚡ Real Results — Nevada Case Study (30 Days)
+          ⚡ Real Results — Nevada Case Study (45 Days)
         </h2>
         <p className="text-lg text-gray-300 mb-16 max-w-2xl mx-auto">
-          In just 30 days, our campaign helped agents in Nevada close more deals with
+          In just 45 days, our campaign helped agents in Nevada close more deals with
           verified, exclusive leads — powered by our Pay-Per-Lead model.
         </p>
 

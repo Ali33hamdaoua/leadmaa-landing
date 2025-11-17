@@ -60,13 +60,28 @@ export default function Home() {
                 Discover More →
               </a>
             </div>
+            <div className="relative w-full py-16 md:py-24 bg-gradient-to-b from-white via-gray-50 to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+              <div className="max-w-6xl mx-auto px-4">
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/10 hover:scale-[1.01] transition-transform duration-300">
+                  <iframe
+                    src="https://www.loom.com/embed/7f0576a852bf463fa3ae444b1c0b29ea?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&hideEmbedPlayerControls=true&hideEmbedMetaData=true&autoplay=true&muted=true"
+                    allow="autoplay; fullscreen"
+                    frameBorder="0"
+                    allowFullScreen
+                    className="w-full h-[400px] md:h-[600px] lg:h-[680px]"
+                    title="Leadmaa Video Presentation"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <ProofBlock />
-      <Benefits />
       <PricingSection />
       <QualificationForm />
     </div>
   );
 }
+
+

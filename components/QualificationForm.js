@@ -9,10 +9,10 @@ export default function QualificationForm() {
 
     emailjs
       .sendForm(
-        "service_ew23brt", // service ID
-        "template_x9b8a29", // template ID
+        "service_1r4n8in", // service ID
+        "template_px36ps7", // template ID
         formRef.current,
-        "MBlVCf-szj0LzuXgt" // public key
+        "CQNpu1f4hGGET4gVn" // public key
       )
       .then(
         () => {
